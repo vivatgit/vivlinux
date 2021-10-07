@@ -94,7 +94,7 @@ export DISPLAY=$HOST_IP:0.0
 export NO_AT_BRIDGE=1
 export PULSE_SERVER=tcp:$HOST_IP
 #export DISPLAY=$(ipconfig.exe | grep 'IPv4 Address' | grep '10\.' | cut -d ":" -f 2 | cut -d " " -f 2| tail -n1 | sed -e 's/\s*//g'):0
-
 ```
+
 
 
