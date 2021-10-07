@@ -82,7 +82,7 @@ Automation can be little different for each case but I'll give example:
 
 ipconfig.exe | grep 'IPv4 Address' | grep '10\.' | cut -d ":" -f 2 | cut -d " " -f 2 
 Explanation: I found all IPv4 addresses (3 IPs in my case). I know that my IP starts only from '10.' so I chose this line using second grep. Next I processed whole line to get the IP only.
-```
+
 viv@Lev:~$ vim ~/.bashrc
 
 
@@ -92,7 +92,7 @@ export DISPLAY=$HOST_IP:0.0
 export NO_AT_BRIDGE=1
 export PULSE_SERVER=tcp:$HOST_IP
 
-```
+
 
 
 
