@@ -62,7 +62,7 @@ viv@Lev:~/git/vivlinux$ ip address show eth0
        valid_lft forever preferred_lft forever
     inet6 fe80::215:5dff:fe42:9ad6/64 scope link
        valid_lft forever preferred_lft forever
-```
+
 ### X apps ###
 https://stackoverflow.com/questions/61110603/how-to-set-up-working-x11-forwarding-on-wsl2
 
@@ -85,12 +85,14 @@ Explanation: I found all IPv4 addresses (3 IPs in my case). I know that my IP st
 
 viv@Lev:~$ vim ~/.bashrc
 
-
+```
 HOST_IP=$(ipconfig.exe | grep 'IPv4 Address' | grep '10\.' | cut -d ":" -f 2 | cut -d " " -f 2| tail -n1 | sed -e 's/\s*//g')
 export LIBGL_ALWAYS_INDIRECT=1
 export DISPLAY=$HOST_IP:0.0
 export NO_AT_BRIDGE=1
 export PULSE_SERVER=tcp:$HOST_IP
+
+```
 
 
 
