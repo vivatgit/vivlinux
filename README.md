@@ -63,5 +63,38 @@ viv@Lev:~/git/vivlinux$ ip address show eth0
     inet6 fe80::215:5dff:fe42:9ad6/64 scope link
        valid_lft forever preferred_lft forever
 ```
+### X apps ###
+https://stackoverflow.com/questions/61110603/how-to-set-up-working-x11-forwarding-on-wsl2
+
+2021 answer for Windows 10
+
+Check this answer if getting IP from resolv.conf doesn't work.
+
+Find your Windows IP address using following command in your WSL2 (yes, .exe file inside linux):
+
+ipconfig.exe 
+Use command below to set display (fill YOUR_IP_ADDRESS with your IP):
+
+export DISPLAY=YOUR_IP_ADDRESS:0
+Check if your GUI app works correctly.
+
+Automation can be little different for each case but I'll give example:
+
+ipconfig.exe | grep 'IPv4 Address' | grep '10\.' | cut -d ":" -f 2 | cut -d " " -f 2 
+Explanation: I found all IPv4 addresses (3 IPs in my case). I know that my IP starts only from '10.' so I chose this line using second grep. Next I processed whole line to get the IP only.
+```
+viv@Lev:~$ vim ~/.bashrc
+
+#export DISPLAY=localhost:0.0
+# Get the IP Address of the Windows 10 Host and use it in Environment.
+#HOST_IP=$(host `hostname` | grep -oP '(\s)\d+(\.\d+){3}' | tail -1 | awk '{ print $NF }' | tr -d '\r')
+HOST_IP=$(ipconfig.exe | grep 'IPv4 Address' | grep '10\.' | cut -d ":" -f 2 | cut -d " " -f 2| tail -n1 | sed -e 's/\s*//g')
+export LIBGL_ALWAYS_INDIRECT=1
+export DISPLAY=$HOST_IP:0.0
+export NO_AT_BRIDGE=1
+export PULSE_SERVER=tcp:$HOST_IP
+#export DISPLAY=$(ipconfig.exe | grep 'IPv4 Address' | grep '10\.' | cut -d ":" -f 2 | cut -d " " -f 2| tail -n1 | sed -e 's/\s*//g'):0
+
+```
 
 
