@@ -1,6 +1,6 @@
 # Setting up windows 10 enviroment tips
 
-### Setting up doccer on windows 10 + WSL 2 ###
+### Setting up docker on windows 10 + WSL 2 ###
 https://docs.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers
 
 # Changing WSL version from 1 to 2
