@@ -43,10 +43,10 @@ The requested operation could not be completed due to a virtual disk system limi
 ## Next issue ##
    lost network 
 ping 127.0.01 - does not work
-Tried tons of advice - no luck
-Solutuin:
+Tried tons of advices - no luck
+* Solution:
 * https://github.com/microsoft/WSL/issues/5437
-* Finaly solution was simple - in windoos create file 
+* Finaly solution was simple - in windows create file 
 ```
 %userprofile%\.wslconfig
 ```
