@@ -85,15 +85,13 @@ Explanation: I found all IPv4 addresses (3 IPs in my case). I know that my IP st
 ```
 viv@Lev:~$ vim ~/.bashrc
 
-#export DISPLAY=localhost:0.0
-# Get the IP Address of the Windows 10 Host and use it in Environment.
-#HOST_IP=$(host `hostname` | grep -oP '(\s)\d+(\.\d+){3}' | tail -1 | awk '{ print $NF }' | tr -d '\r')
+
 HOST_IP=$(ipconfig.exe | grep 'IPv4 Address' | grep '10\.' | cut -d ":" -f 2 | cut -d " " -f 2| tail -n1 | sed -e 's/\s*//g')
 export LIBGL_ALWAYS_INDIRECT=1
 export DISPLAY=$HOST_IP:0.0
 export NO_AT_BRIDGE=1
 export PULSE_SERVER=tcp:$HOST_IP
-#export DISPLAY=$(ipconfig.exe | grep 'IPv4 Address' | grep '10\.' | cut -d ":" -f 2 | cut -d " " -f 2| tail -n1 | sed -e 's/\s*//g'):0
+
 ```
 
 
