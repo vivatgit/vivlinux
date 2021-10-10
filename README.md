@@ -113,6 +113,10 @@ Windows Registry Editor Version 5.00
 
 restart windows
 
+right click on My PC -> Map network drive \\10.0.0.x\sambashare 
+check box Use different credentials and enter user configured for samba un ubuntu by 
+sudo smbpasswd -a myusername
+
 ```
 
 
