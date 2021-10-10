@@ -93,8 +93,27 @@ export NO_AT_BRIDGE=1
 export PULSE_SERVER=tcp:$HOST_IP
 
 ```
+### Separate unix box - setting Samba on ubuntu ###
 
+* https://ubuntu.com/tutorials/install-and-configure-samba#4-setting-up-user-accounts-and-connecting-to-share
 
+* https://bgstack15.wordpress.com/2017/10/01/samba-and-ntlm-for-windows-clients/
+
+```
+Use one or the other:
+
+1. Insecure but fast, in /etc/samba/smb.conf:
+[global]
+ntlm auth = yes
+2. Best, on client Windows machine:
+Windows Registry Editor Version 5.00
+
+[HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Lsa]
+"LmCompatibilityLevel"=dword:00000001
+
+restart windows
+
+```
 
 
 
